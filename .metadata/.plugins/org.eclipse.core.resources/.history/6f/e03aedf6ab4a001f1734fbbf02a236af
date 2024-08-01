@@ -1,0 +1,5 @@
+package com.jsp.hibernate.Hiberanate_Criteria;
+
+public class Person {
+
+}

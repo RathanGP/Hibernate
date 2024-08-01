@@ -1,0 +1,28 @@
+package com.jsp.hibernate.Hiberanate_Criteria;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Person person2=new Person();
+    	person2.setPersonId(103);
+    	person2.setPersonName("Raju");
+    	
+        Configuration cfg=new  Configuration().configure().addAnnotatedClass(Person.class);
+        SessionFactory sf = cfg.buildSessionFactory();
+        Session session = sf.openSession();
+        Transaction tran = session.beginTransaction();
+        
+        session.save(person2);
+        
+        tran.commit();
+        session.close();
+        sf.close();
+        
+    }
+}

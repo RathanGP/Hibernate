@@ -1,0 +1,37 @@
+package com.jsp.hibernate.Hibernate_Query;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Configuration cfg = new Configuration();
+		cfg.configure();
+		cfg.addAnnotatedClass(Student.class);
+		SessionFactory sf = cfg.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+
+
+		Query<Student> query=session.createQuery("update Student s set s.StudnetMarks=?1 where s.StudentId=?2");
+		query.setParameter(1, 55);
+		query.setParameter(2, 101);
+		List<Student> students=query.list();
+		for(Student s: students)
+		{
+			System.out.println(s);
+		}
+
+		tran.commit();
+		session.close();
+		sf.close();
+    }
+}

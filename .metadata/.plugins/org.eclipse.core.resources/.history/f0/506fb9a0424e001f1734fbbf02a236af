@@ -1,0 +1,7 @@
+package com.jsp.hibernate.Hibernate_JPA_ShoppingCart.Entity;
+
+
+
+public class User {
+
+}

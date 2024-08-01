@@ -1,0 +1,35 @@
+package com.jsp.hibernate.Hibernate_Query;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Student
+{
+	private int StudentId;
+	private String Studentname;
+	private int StudnetMarks;
+	public int getStudentId() {
+		return StudentId;
+	}
+	public void setStudentId(int studentId) {
+		StudentId = studentId;
+	}
+	public String getStudentname() {
+		return Studentname;
+	}
+	public void setStudentname(String studentname) {
+		Studentname = studentname;
+	}
+	public int getStudnetMarks() {
+		return StudnetMarks;
+	}
+	public void setStudnetMarks(int studnetMarks) {
+		StudnetMarks = studnetMarks;
+	}
+	@Override
+	public String toString() {
+		return "Student [StudentId=" + StudentId + ", Studentname=" + Studentname + ", StudnetMarks=" + StudnetMarks
+				+ "]";
+	}
+
+}

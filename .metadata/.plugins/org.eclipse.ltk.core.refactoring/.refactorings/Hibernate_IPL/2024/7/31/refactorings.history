@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;App.java&apos; to &apos;Hibernate_Student&apos;&#x0D;&#x0A;- Original project: &apos;Hibernate_IPL&apos;&#x0D;&#x0A;- Destination element: &apos;Hibernate_Student&apos;&#x0D;&#x0A;- Original element: &apos;com.jsp.hibernate.Hibernate_IPL.App.java&apos;" description="Copy compilation unit" destination="=Hibernate_Student" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.jsp.hibernate.Hibernate_IPL{App.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1722321628900" units="1" version="1.0"/>
+</session>

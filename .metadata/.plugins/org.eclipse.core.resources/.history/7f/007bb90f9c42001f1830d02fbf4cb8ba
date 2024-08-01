@@ -1,0 +1,18 @@
+package com.jsp.hibernate.HibernateProjectRelationalMapping1toMany;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Company 
+{
+	@Id
+	private int companyId;
+	private String companyName;
+	private String companyAddress;
+	
+	@OneToMany
+	private List<Employee> employee=new ArrayList<>();
+
+}

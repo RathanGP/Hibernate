@@ -1,0 +1,13 @@
+package com.jsp.hibernate.HibernateProject_Caching;
+
+import org.hibernate.cfg.Configuration;
+
+import com.mysql.cj.Session;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+      Configuration cfg=new Configuration().configure().addAnnotatedClass(Product.class);
+    }
+}

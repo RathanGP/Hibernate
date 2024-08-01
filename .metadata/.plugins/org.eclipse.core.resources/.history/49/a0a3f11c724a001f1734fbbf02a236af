@@ -1,0 +1,47 @@
+package com.jsp.hibernate.Hibernate_IPL;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import com.jsp.hibernate.Hibernate_IPL.entity.Player;
+
+
+
+public class CriteriaClass
+{
+	public static void main(String[] args) 
+	{
+		Configuration cfg = new Configuration().configure().addAnnotatedClass(Player.class);
+		SessionFactory sf = cfg.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+		
+		Criteria c=session.createCriteria(Player.class);
+		List<Player> playerList=c.list();
+		for(Player p:playerList)
+		{
+			System.out.println(p);
+		}
+		
+		Query<Player> query=session.createQuery("Select p from Player p");
+		List<Player> playerList1=query.list();
+		for(Player p:playerList1)
+		{
+			System.out.println(p);
+		}
+		
+		
+		
+		tran.commit();
+		session.close();
+		sf.close();
+		
+	}
+
+}

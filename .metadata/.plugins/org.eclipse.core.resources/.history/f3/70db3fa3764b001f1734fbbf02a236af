@@ -1,0 +1,5 @@
+package com.jsp.hibernate.Hibernate_JPA_Employee.Repository;
+
+public class EmployeeRespository {
+
+}

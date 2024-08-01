@@ -1,0 +1,18 @@
+package com.jsp.hibernate.Hibernate_JPA_ShoppingCart.Entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class User 
+{
+	@Id
+	private int UserId;
+	private String UserName;
+	private String UserEmail;
+	
+	private Address address;
+	
+	private Cart cart;
+
+}

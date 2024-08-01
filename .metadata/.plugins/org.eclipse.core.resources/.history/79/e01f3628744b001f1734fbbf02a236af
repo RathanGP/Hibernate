@@ -1,0 +1,6 @@
+package com.jsp.hibernate.Hibernate_JPA_Employee.Entity;
+
+public class Employee
+{
+
+}

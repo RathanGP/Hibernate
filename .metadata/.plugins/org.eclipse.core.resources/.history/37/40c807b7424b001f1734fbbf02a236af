@@ -1,0 +1,28 @@
+package com.jsp.hibernate.Hibernate_JPA;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	Vehicle vehicle1=new Vehicle();
+    	vehicle1.setVehicleId(102);
+    	vehicle1.setVehicleName("Shine");
+    	
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("mysql_config");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction et = em.getTransaction();
+        
+        et.begin();
+        em.persist(vehicle1);
+        
+        et.commit();
+        em.close();
+        emf.close();
+        
+    }
+}

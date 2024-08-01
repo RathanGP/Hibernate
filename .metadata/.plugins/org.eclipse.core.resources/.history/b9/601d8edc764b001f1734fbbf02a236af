@@ -1,0 +1,10 @@
+package com.jsp.hibernate.Hibernate_JPA_Employee;
+
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+       
+    }
+}

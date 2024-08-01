@@ -1,0 +1,14 @@
+package com.jsp.hibernate.HibernateProjectRetationalMapping1to1;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Person
+{
+	@Id
+	private int PersonId;
+	private String PersonName;
+	
+
+}

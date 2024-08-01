@@ -1,0 +1,128 @@
+package com.jsp.hibernate.Hibernate_Student.Repository;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import com.jsp.hibernate.Hibernate_Student.Entity.Student;
+
+public class StudentRepository 
+{
+	Configuration cfg=new Configuration().configure().addAnnotatedClass(Student.class);
+	SessionFactory sf=cfg.buildSessionFactory();
+	Scanner sc=new Scanner(System.in);
+	
+	public void addStudent()
+	{
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+		
+		Student student=new Student();
+		System.out.println("Enter StudentID");
+		student.setStudentId(sc.nextInt());
+		System.out.println("Enter Student Name");
+		student.setStudentName(sc.next());
+		System.out.println("Enter Student Email");
+		student.setStudentEmail(sc.next());
+		System.out.println("Enter Student CGPA");
+		student.setStudentCGPA(sc.nextDouble());
+		System.out.println("Enter Student College");
+		student.setStudentEmail(sc.next());
+		
+		session.save(student);
+		
+		tran.commit();
+		session.close();
+		sf.close();
+	}
+	public void findStudentById()
+	{
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+		
+		System.out.println("Enter StudentID");
+		Student student=session.get(Student.class, sc.nextInt());
+		
+		System.out.println(student);
+		session.save(student);
+		
+		tran.commit();
+		session.close();
+		sf.close();
+		
+	}
+	public void findStudentByEmail()
+	{
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+		
+		Query<Student> query=session.createQuery(" from Student s  where s.StudentEmail=:studentemail");
+		System.out.println("Enter Student EmailId");
+		query.setParameter("studentemail", sc.next());
+		
+		List<Student> students=query.list();
+		for(Student student:students)
+		{
+			System.out.println(student);
+		}
+		
+		
+		
+		tran.commit();
+		session.close();
+		sf.close();
+	}
+	public void findStudentByName()
+	{
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+		
+		Query<Student> query=session.createQuery(" from Student where StudentName=:studentname");
+		System.out.println("Enter Student Name");
+		query.setParameter("studentname", sc.next());
+		
+		List<Student> students=query.list();
+		for(Student student:students)
+		{
+			System.out.println(student);
+		}
+		
+		
+		
+		tran.commit();
+		session.close();
+		sf.close();
+	}
+	public void updateStudentCGPA()
+	{
+		Session session = sf.openSession();
+		Transaction tran = session.beginTransaction();
+		
+		Query<Student> query=session.createQuery("from Student s where s.StudentId=:studentid");
+		System.out.println("Enter StudentId");
+		query.setParameter("studentid", sc.nextInt());
+		List<Student> students=query.list();
+		
+		for(Student student:students)
+		{
+			int studid=student.getStudentId();
+			double existingCGPA=student.getStudentCGPA();
+			
+			Query<Student> query2=session.createQuery("upadte Student s set s.StudentCGPA:=studentcgpa where s.StudentId=:studid");
+			System.out.println("Enter StudentCGPA and Id");
+			query2.setParameter("studentcgpa", existingCGPA+2);
+			query2.setParameter("studentid", studid);
+			int row=query2.executeUpdate();
+		}
+		tran.commit();
+		session.close();
+		sf.close();
+		
+	}
+	
+}

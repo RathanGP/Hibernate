@@ -1,0 +1,37 @@
+package com.jsp.hibernate.HibernateProjectRetationalMapping1to1;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Aadhar
+{
+	@Id
+	private int AadharId;
+	private int AadhrNo;
+	
+	@OneToOne
+	private int PersonId;
+
+	
+	public int getPersonId() {
+		return PersonId;
+	}
+	public void setPersonId(int personId) {
+		PersonId = personId;
+	}
+	public int getAadharId() {
+		return AadharId;
+	}
+	public void setAadharId(int aadharId) {
+		AadharId = aadharId;
+	}
+	public int getAadhrNo() {
+		return AadhrNo;
+	}
+	public void setAadhrNo(int aadhrNo) {
+		AadhrNo = aadhrNo;
+	}
+
+}

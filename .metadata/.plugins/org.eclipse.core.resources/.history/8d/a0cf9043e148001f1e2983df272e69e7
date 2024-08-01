@@ -1,0 +1,5 @@
+package com.jsp.hibernate.Hibernate_Query;
+
+public class Student {
+
+}

@@ -1,0 +1,208 @@
+package com.jsp.hibernate.Hibernate_IPL.rep;
+
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import com.jsp.hibernate.Hibernate_IPL.entity.Player;
+
+public class PlayerRepository
+{
+	Configuration cfg=new Configuration().configure().addAnnotatedClass(Player.class);
+	 SessionFactory sf = cfg.buildSessionFactory();
+     
+     Scanner sc=new Scanner(System.in);
+     
+     public void addPlayer()
+     {
+    	Player player=new Player();
+    	 System.out.println("Enter Player Id");
+    	 player.setPlayerid(sc.nextInt());
+    	 System.out.println("Enter Player Name");
+    	 player.setPlayerName(sc.next());
+    	 System.out.println("Enter Player Age");
+    	 player.setPlayerAge(sc.nextInt());
+    	 System.out.println("Enter Player Nationality");
+    	 player.setNationality(sc.next());
+    	 System.out.println("Enter Player Team");
+    	 player.setIplTeam(sc.next());
+    	 System.out.println("Enter Player Sal");
+    	 player.setIplSal(sc.nextInt());
+
+    	 Session session = sf.openSession();
+    	 Transaction tran = session.beginTransaction();
+    	 
+    	 session.save(player);
+    	 
+    	 tran.commit();
+    	 session.close();
+     }
+    
+     public void findPlayerById()
+     {
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+			
+			System.out.println("Enter PlayerId");
+			Player player = session.get(Player.class, sc.nextInt());
+			
+			System.out.println(player);
+			session.save(player);
+		
+			
+			tran.commit();
+			session.close();
+			sf.close();
+    	 
+     }
+     public void findAllPlayerByNationality()//hql query
+	 {
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("from Player p where p.Nationality=:Nationality");
+			System.out.println("Enter Nationality");
+			query.setParameter("Nationality", sc.next());
+			List<Player> players = query.list();
+
+			for (Player player : players) {
+				System.out.println(player);
+			}
+
+			tran.commit();
+			session.close();
+
+     }
+     public void findAllPlayerByIplTeam()//hql query
+     {
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("from Player p where p.IplTeam=:IplTeam");
+			System.out.println("Enter Ipl Team");
+			query.setParameter("IplTeam", sc.next());
+			List<Player> players = query.list();
+
+			for (Player player : players) {
+				System.out.println(player);
+			}
+
+			tran.commit();
+			session.close();
+     }
+     public void findAllPlayersBetweenAge()//sql query
+     {
+    	    Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("from Player where PlayerAge between ?1 and ?2", Player.class);
+			System.out.println("Enter PlayerAge");
+			query.setParameter(1, sc.nextInt());
+			query.setParameter(2, sc.nextInt());
+			List<Player> players = query.getResultList();
+
+			for (Player player : players) {
+				System.out.println(player);
+			}
+
+			tran.commit();
+			session.close();
+     }
+     public void updatePlayerIplSalaryById()//sql query
+     {
+    	 Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("from Player p where p.Playerid=:playerid");
+			System.out.println("Enter Player team ");
+			query.setParameter("playerid", sc.nextInt());
+			List<Player> players = query.list();
+			for (Player player : players)
+			{
+				System.out.println(player);
+			}
+			tran.commit();
+			session.close();
+    	
+			
+     }
+     public void updateAllPlayerIplSalaryByIplTeam()//hql quey
+	 {
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("from Player p where p.IplTeam=:team");
+			System.out.println("Enter Player team ");
+			query.setParameter("team", sc.next());
+			List<Player> players = query.list();
+			for (Player player : players)
+			{
+				int id = player.getPlayerid();
+				int existingsalary = player.getIplSal();
+
+				Query<Player> query2 = session.createQuery("update Player p set p.IplSal=:salary where p.Playerid=:id");
+				query2.setParameter("salary", existingsalary + 500000);
+				query2.setParameter("id", id);
+				int rowInserted = query2.executeUpdate();
+
+			}
+
+			tran.commit();
+			session.close();
+		
+     }
+     public void deleteAllPlayerById()//hql
+	 {
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("delete from Player p where p.PlayerId=?1");
+			System.out.println("Enter Player to be deleted ");
+			query.setParameter(1, sc.nextInt());
+
+			query.executeUpdate();
+
+			tran.commit();
+			session.close();
+		
+     }
+     public void deleteAllPlayerByIplTeam()//sql
+	 {
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("delete from Player p where p.PlayerId=?1");
+			System.out.println("Enter Player to be deleted ");
+			query.setParameter(1, sc.nextInt());
+
+			query.executeUpdate();
+
+			tran.commit();
+			session.close();
+		
+     }
+     public void deleteAllPlayerBetweenIplSalary()//sql
+     {
+
+			Session session = sf.openSession();
+			Transaction tran = session.beginTransaction();
+
+			Query<Player> query = session.createQuery("delete from Player where IplSal between ?1 and ?2");
+			System.out.println("Enter Player Between IplSalar ");
+			query.setParameter(1, sc.nextInt());
+			query.setParameter(2, sc.nextInt());
+
+			query.executeUpdate();
+
+			tran.commit();
+			session.close();
+    	 
+     }
+     
+    
+}

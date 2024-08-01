@@ -1,0 +1,5 @@
+package com.jsp.hibernate.HibernateProjectRelationalMapping1toMany;
+
+public class Employee {
+
+}

@@ -1,0 +1,13 @@
+package com.jsp.hibernate.Hibernate_JPA_Employee;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

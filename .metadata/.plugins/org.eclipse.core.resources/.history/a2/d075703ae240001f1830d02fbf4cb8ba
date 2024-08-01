@@ -1,0 +1,5 @@
+package com.jsp.hibernate.HibernateProjectRetationalMapping1to1;
+
+public class Aadhar {
+
+}

@@ -1,0 +1,5 @@
+package com.jsp.hibernate.Hibernate_JPA;
+
+public class Vehicle {
+
+}

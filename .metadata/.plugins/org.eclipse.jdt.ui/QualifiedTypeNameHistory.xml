@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.hibernate.boot.internal.DefaultSessionFactoryBuilderService"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectStudent.Product"/>
+    <fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectDemo.App"/>
+    <fullyQualifiedTypeName name="org.w3c.dom.DOMConfiguration"/>
+    <fullyQualifiedTypeName name="java.lang.module.Configuration"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectDemo.Student"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectSample.Student"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectEmployee.Repository.EmployeeRepository"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectRetationalMapping1to1.Aadhar"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectRelationalMapping1toMany.Company"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectRelationalMapping1toMany.Employee"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateDemo.Person"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateDemo.Vehicle"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.security.auth.login.Configuration"/>
+    <fullyQualifiedTypeName name="org.hibernate.query.criteria.internal.expression.ConcatExpression"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.Sample.Student"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.Sample.Course"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.HibernateProjectEmployee.Entity.Employee"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.Demo.Person"/>
+    <fullyQualifiedTypeName name="com.jsp.hibernate.Demo.Aadhar"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+</qualifiedTypeNameHistroy>

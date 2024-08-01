@@ -1,0 +1,14 @@
+package com.jsp.hibernate.Hibernate_JPA_ShoppingCart.Entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Address
+{
+	@Id
+	private int AddressId;
+	private String Location;
+	private String City;
+
+}
